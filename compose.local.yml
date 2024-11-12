@@ -32,6 +32,14 @@ services:
       - simulator-internal-network
     profiles:
       - externalImportEnabled
+  static-webserver:
+    image: nginx:alpine
+    container_name: simulator-static-webserver
+    restart: always
+    volumes:
+      - ./static:/usr/share/nginx/html
+    networks:
+      - simulator-internal-network
   extender:
     build: ./extender
     container_name: simulator-extender

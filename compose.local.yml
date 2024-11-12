@@ -32,6 +32,12 @@ services:
       - simulator-internal-network
     profiles:
       - externalImportEnabled
+  extender:
+    build: ./extender
+    container_name: simulator-extender
+    restart: always
+    networks:
+      - simulator-internal-network
 networks:
   simulator-internal-network:
     driver: bridge
